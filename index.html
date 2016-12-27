@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>腾讯视频</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./js/smart.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/vue-resource.min.js"></script>
+    <script src="./dist/vue-url-content.js"></script>
+</head>
+<body id="app">
+<div v-url-content="url"><div style="padding: 20px"><img src="balls.gif"/></div></div>
+
+</body>
+<script>
+
+    new Vue({
+        el: "#app",data:{url:'./abc.html'},
+        ready: function () {
+            var me=this;
+
+            me.url='./2.html';
+            setTimeout(function () {
+                me.url='./abc.html?id=1';
+            },5000);
+
+            //jsonp
+//            this.$http.jsonp(share.jsonUrl(),{url:encodeURIComponent(location.href.replace(/[\#][\s\S]*/, '')) }).then(function (response) {
+//                var json= response.json()
+//                console.log('jsonp:',json);
+//
+//                share.init(json);
+//                share.set('appmessage', 'title', "再次jsonP 设置");
+//                share.set('timeline', 'title', "再次jsonP 设置");
+//                share.update();
+//
+//
+//
+//            }, function (response) {
+//                console.log('error', response.status);
+//            });
+        }
+    })
+
+
+
+</script>
+</html>
